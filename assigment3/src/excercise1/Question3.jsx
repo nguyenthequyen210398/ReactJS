@@ -23,6 +23,27 @@ function question3() {
                 <button  type='botton' >Đọc thêm</button>
             
             </div>
+            <br />
+
+            <div className='login'>
+                <h1>Login Form</h1>
+                <form action="">
+                    <div className='innerForm'>
+                    <input type='text'  placeholder='Email or Uername'></input>
+                
+                    <input type='text' placeholder='Password'></input>
+                   
+                    <input type="submit" value="LOGIN"></input>
+                    </div>
+                </form>
+                <br />
+                <p>Or login with</p>
+                <button style={{color: 'blue'}}><i class="fa-brands fa-facebook"></i> <b >Facebook</b></button>
+                <button style={{color: 'red'}}><i class="fa-brands fa-google-plus"></i> <b>Google</b></button>
+                <p>Not a member? <a href='https://www.google.com/'>Signup now</a> </p>
+            </div>
+          
+
 
         </>
 
