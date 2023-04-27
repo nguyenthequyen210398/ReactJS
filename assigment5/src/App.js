@@ -20,7 +20,7 @@ function App() {
       <div>
         <h1>Exercise 2: Context</h1>
         <h2>Question 1:</h2>
-        <Question1E2 />
+         <Question1E2 /> 
       </div>
      
    
