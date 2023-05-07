@@ -3,11 +3,73 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import PostDataList from './components/PostDataList';
+import AddPost from './components/AddPost';
+import HomePage from './components/HomePage';
+import Post from './components/Post';
+import PostWithContext from './components/PostWithList';
+import PostWithList from './components/PostWithList';
+import Page404 from './components/Page404';
+import BasePost from './components/BasePost';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/home",
+        element: <HomePage />,
+        children: [
+          {
+            path: "post",
+            element: <BasePost />,
+            children: [
+
+              {
+                path: "",
+                element: <PostDataList />,
+              },
+              {
+                path: ":postId",
+                element: <PostWithList />,
+              },
+              {
+                path: "adds",
+                element: <AddPost />,
+              },
+
+            ]
+          },
+
+
+        ]
+      },
+
+      {
+        path: "/404",
+        element: <Page404></Page404>
+      },
+      // {
+      //   path: "/posts/:id",
+      //   element: <Post />,
+      // },
+
+
+    ]
+
+  },
+
+])
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
+
   </React.StrictMode>
 );
 

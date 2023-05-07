@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import './Post.css';
 import Comment from './Comment';
+import Author from './Author';
+import Icon from './Icon';
+import { useLocation } from 'react-router-dom';
 
 function Post(props) {
     console.log("Post", props);
-    const [content, setContent] = useState(props.post?.content);
+    const location = useLocation();
+    console.log("location", location);
+    const post = location?.state;
+    const[theme, setTheme] = useState({backgroundColor: 'white'});
+    const [content, setContent] = useState(post?.content);
     const [likeNumber, setLikeNumber] = useState(0);
-    const [obj, setObj] = useState({author: "Thế Quyền"});
+    const [author, setAuthor] = useState(post?.author);
     
-    const name = props.post?.title;
+    const name = post?.title;
 
-    const id = props.post?.id;
-
+    const id = post?.id;
 
     const showLength = () => { return content?.length;}
 
@@ -21,23 +27,25 @@ function Post(props) {
 
     const iconLikeClick = () => {
        setLikeNumber(current => ++current);
-
+        setTheme({backgroundColor: 'black'})
     }
     
-    const iconPenClick = () => {
-       setObj({ author: "gau21"});
-    }
+   
 
 
     return <React.Fragment>
+        
         <h2>{name} (id:{id})</h2>
+        <i class="fa-solid fa-trash"></i>
         <textarea id="w3review" name="w3review" rows="4" cols="50" value={content} onChange={textChangeHandle}></textarea>
-        <p>Author: <i>{obj.author}</i> <i onClick={iconPenClick} className="fa-solid fa-pen"></i></p>    
+        <p>~{author}~</p>
+        <Author id={id} name = {author} action1 = {setAuthor}></Author>
         {likeNumber} <i onClick={iconLikeClick} className="fa fa-thumbs-up"></i>
         <br />
+        <Icon id = {id}></Icon>
         <Comment></Comment>
     
-        <p>Leng of content: <span className='bold'>{showLength()}</span></p>
+        <p style={theme}>Leng of content: <span className='bold'>{showLength()}</span></p>
     </React.Fragment>
 }
 
