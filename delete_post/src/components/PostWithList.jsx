@@ -8,7 +8,7 @@ import { PostListContext } from './PostDataList';
 
 
 function PostWithList(props) {
-    const match = useMatch('home/post/:id');
+    // const match = useMatch('home/post/:id');
     console.log("match", match)
     const context = useContext(PostListContext);
     const postList = context.postList;

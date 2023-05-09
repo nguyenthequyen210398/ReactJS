@@ -7,10 +7,11 @@ import reportWebVitals from './reportWebVitals';
 import HomePage from './components/HomePage';
 import BaseStudent from './components/BaseStudent';
 import Students from './components/Students';
-import Student from './components/Student';
+
 import StudentAdd from './components/StudentAdd';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Page404 from './components/Page404';
+import StudentDetail from './components/StudentDetail';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
               },
               {
                 path: ":studentId",
-                element: <Student />
+                element: <StudentDetail />
               },
               {
                 path: "adds",

@@ -12,10 +12,13 @@ function Students() {
         <h2>Danh sách student:</h2>
         {listStudent.map(
             value => <> <Link key={value.id} to={value.id} state={value}>
-                {value.id}{value.name}
+                {value.name}
             </Link><br /></>
             
         )}
+        <div>
+            <Link to="adds">Add student</Link>
+        </div>
     </>
 
 }
