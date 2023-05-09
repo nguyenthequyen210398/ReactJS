@@ -7,7 +7,8 @@ function HomePage() {
     return <>
         <Header></Header>
         <h1>Wellcome!!!</h1>
-        <Link to="post">Posts</Link>
+        <Link to="post">Posts</Link> <span>|</span>
+        <Link to="count">Count</Link>
         <hr></hr>
         <div className="PostApp">
 

@@ -4,10 +4,58 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import HomePage from './components/HomePage';
+import BaseStudent from './components/BaseStudent';
+import Students from './components/Students';
+import Student from './components/Student';
+import StudentAdd from './components/StudentAdd';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Page404 from './components/Page404';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/home",
+        element: <HomePage />,
+        children: [
+          {
+            path:"student",
+            element: <BaseStudent />,
+            children: [
+              {
+                path: "",
+                element: <Students />,
+              },
+              {
+                path: ":studentId",
+                element: <Student />
+              },
+              {
+                path: "adds",
+                element: <StudentAdd />
+              },
+
+
+            ]
+          }
+        ]
+      },
+      {
+        path:"/404",
+        element: <Page404 />
+      }
+    ]
+  }
+])
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
   </React.StrictMode>
 );
 

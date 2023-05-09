@@ -36,7 +36,7 @@ function Post(props) {
     return <React.Fragment>
         
         <h2>{name} (id:{id})</h2>
-        <i class="fa-solid fa-trash"></i>
+       
         <textarea id="w3review" name="w3review" rows="4" cols="50" value={content} onChange={textChangeHandle}></textarea>
         <p>~{author}~</p>
         <Author id={id} name = {author} action1 = {setAuthor}></Author>

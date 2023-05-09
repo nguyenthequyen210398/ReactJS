@@ -12,6 +12,7 @@ import PostWithContext from './components/PostWithList';
 import PostWithList from './components/PostWithList';
 import Page404 from './components/Page404';
 import BasePost from './components/BasePost';
+import Count from './components/Count';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
 
             ]
           },
+          {
+            path: "count",
+            element: <Count />
+          }
 
 
         ]
